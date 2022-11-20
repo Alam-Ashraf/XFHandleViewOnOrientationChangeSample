@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFHandleViewOnOrientationChangeSample.MainPage">
+
+     <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="FlexLayout">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="OrientationState">
+
+                            <!--  Portrait  -->
+                            <VisualState x:Name="Portrait">
+                                <VisualState.Setters>
+                                    <Setter Property="Direction" Value="Column" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                            <!--  Landscape  -->
+                            <VisualState x:Name="Landscape">
+                                <VisualState.Setters>
+                                    <Setter Property="Direction" Value="Row" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+        <FlexLayout
+            x:Name="FlexLayout"
+            Direction="Column"
+            Wrap="NoWrap">
+
+            <Image
+                x:Name="Image"
+                Aspect="AspectFill"
+                FlexLayout.Basis="40%"
+                Source="img.jpg"/>
+
+
+            <StackLayout Margin="10" FlexLayout.Basis="60%">
+
+                <Label Text="Title" FontSize="Large"  FontAttributes="Bold"/>
+
+                <ScrollView>
+                    <Label Text="Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+                           FontSize="Medium" />
+                </ScrollView>
+
+            </StackLayout>
+
+        </FlexLayout>
+
+</ContentPage>
+
